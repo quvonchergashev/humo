@@ -14,12 +14,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-
     private final UserRepository userRepository;
-
-
-
-
     @Override
     public Page<User> getAllUser(int page) {
 
@@ -27,13 +22,11 @@ public class UserServiceImpl implements UserService {
         Page<User> userRepositoryAll = userRepository.findAll(pageRequest);
         return userRepositoryAll;
     }
-
     @Override
     public User getById(Long id) {
         Optional<User> repository = userRepository.findById(id);
         return repository.orElse(null);
     }
-
     @Override
     public User getByPhoneNumber(String phoneNumber) {
         Optional<User> phoneNumber1 = userRepository.findByPhoneNumber(phoneNumber);

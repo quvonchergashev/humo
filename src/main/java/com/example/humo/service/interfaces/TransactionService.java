@@ -7,7 +7,6 @@ import com.example.humo.dto.GetMoneyDto;
 import com.example.humo.dto.GiveMoneyDto;
 
 public interface TransactionService {
-
     FindByIdCardDataDto findByIdCard(String cardNumber);
     CheckTransactionDto giveMoney(GiveMoneyDto giveMoneyDto);
     CheckTransactionDto getMoney(GetMoneyDto getMoneyDto);

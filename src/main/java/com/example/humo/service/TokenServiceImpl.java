@@ -1,6 +1,5 @@
 package com.example.humo.service;
 
-import com.example.humo.entity.Card;
 import com.example.humo.entity.Token;
 import com.example.humo.repositories.TokenRepository;
 import com.example.humo.service.interfaces.TokenService;
@@ -17,7 +16,6 @@ public class TokenServiceImpl implements TokenService {
     public Token save(Token token) {
         return tokenRepository.save(token);
     }
-
     @Override
     public Optional<Token> findByToken(String token) {
         return tokenRepository.findByToken(token);

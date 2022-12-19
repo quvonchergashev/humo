@@ -8,11 +8,11 @@ import com.example.humo.dto.GiveMoneyDto;
 import com.example.humo.entity.Card;
 import com.example.humo.entity.EOPS;
 import com.example.humo.entity.Transaction;
-import com.example.humo.entity.User;
 import com.example.humo.repositories.TransactionRepository;
+import com.example.humo.service.interfaces.CardService;
+import com.example.humo.service.interfaces.EOPSService;
 import com.example.humo.service.interfaces.TransactionService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -23,12 +23,9 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
-
     private final TransactionRepository transactionRepository;
-
-    private final EOPSServiceImpl eopsService;
-
-    private final CardServiceImpl cardService;
+    private final EOPSService eopsService;
+    private final CardService cardService;
     @Override
     public FindByIdCardDataDto findByIdCard(String cardNumber) {
         Optional<Card> byCardNumber = cardService.findByCardNumberForTransaction(cardNumber);

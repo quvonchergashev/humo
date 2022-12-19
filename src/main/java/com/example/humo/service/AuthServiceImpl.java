@@ -21,14 +21,9 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements UserDetailsService, AuthService {
-
-
     private final UserRepository userRepository;
-
     private final AuthenticationManager authenticationManager;
-
     private final JwtProvider jwtProvider;
-
     @Override
     public UserDetails loadUserByUsername(String phoneNumber) throws UsernameNotFoundException {
         Optional<User> byUsername = userRepository.findByPhoneNumber(phoneNumber);
@@ -48,6 +43,7 @@ public class AuthServiceImpl implements UserDetailsService, AuthService {
             return new ResponseApi("Parol yoki telefon nomer xato", false);
         }
     }
+
 
 
 

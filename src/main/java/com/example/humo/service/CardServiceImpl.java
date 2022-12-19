@@ -6,6 +6,7 @@ import com.example.humo.exception.InsufficientAmountException;
 import com.example.humo.repositories.CardRepository;
 import com.example.humo.security.JwtProvider;
 import com.example.humo.service.interfaces.CardService;
+import com.example.humo.service.interfaces.TokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ import java.util.*;
 public class CardServiceImpl implements CardService {
     private final CardRepository cardRepository;
     private final JwtProvider jwtProvider;
-    private final TokenServiceImpl tokenService;
+    private final TokenService tokenService;
     @Override
     public Card findById(Long id) {
         return cardRepository.findById(id).get();

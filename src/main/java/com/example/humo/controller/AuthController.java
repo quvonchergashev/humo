@@ -1,7 +1,7 @@
 package com.example.humo.controller;
 import com.example.humo.dto.LoginDto;
 import com.example.humo.payload.ResponseApi;
-import com.example.humo.service.AuthServiceImpl;
+import com.example.humo.service.interfaces.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
-
-    private final AuthServiceImpl authService;
-
+    private final AuthService authService;
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginDto loginDto) {
         ResponseApi login = authService.login(loginDto);
